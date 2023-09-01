@@ -1,9 +1,3 @@
-opencv-python
-pypng
-pytorch-lightning # training utils
-pillow # image op
-tensorboard # logging
-matplotlib # plotting
 kornia==0.6.7 # gradients
 antialiased-cnns # anti aliased resnet
 efficientnet_pytorch
@@ -13,10 +7,12 @@ transforms3d # for NeuralRecon's arkit
 einops # batching one liners
 moviepy # storing videos
 pyrender # rendering meshes
-open3d # mesh fusion
+open3d==0.14.1 # mesh fusion
 scipy # transformations and a few others
 protobuf<4.21.0 # lighting/tensorboard fix
 setuptools==59.5.0 # fix for tensorboard
 https://github.com/JamieWatson683/scikit-image/archive/single_mesh.zip # single mesh exporting for measure.marching_cubes
-
-
+pytorch-lightning==1.5.4 # training utils
+pillow # image op
+tensorboard # logging
+matplotlib # plotting

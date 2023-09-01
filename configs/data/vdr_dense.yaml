@@ -7,3 +7,4 @@ mv_tuple_file_suffix: _eight_view_deepvmvs_dense.txt
 num_images_in_tuple: 8
 frame_tuple_type: dense
 split: test
+

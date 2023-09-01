@@ -159,6 +159,8 @@ class Options():
 
     # only run whatever it is this script is doing on a single frame.
     single_debug_scan_id: str = None
+    gpu_id_debug: int = -1
+    gpu_total_debug: int = -1
 
     # skip every skip_frames tuple when inferring depths. Useful for dense 
     # tuples

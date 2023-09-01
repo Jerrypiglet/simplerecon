@@ -129,7 +129,7 @@ def main(opts):
 
     # get dataset
     dataset_class, scans = get_dataset(opts.dataset, 
-                        opts.dataset_scan_split_file, opts.single_debug_scan_id)
+                        opts.dataset_scan_split_file, opts.single_debug_scan_id, opts.gpu_id_debug, opts.gpu_total_debug)
  
     # path where results for this model, dataset, and tuple type are.
     results_path = os.path.join(opts.output_base_path, opts.name, 

@@ -67,12 +67,26 @@ Precomputed scans for online default frames are here: https://drive.google.com/d
 SimpleRecon takes as input posed RGB images, and outputs a depth map for a target image.
 
 ## Rui
+mm2: 
+
+``` bash
+# conda env create -f simplerecon_env.yml
+conda create --name simplerecon-py39 python=3.9 pip
+conda activate simplerecon-py39
+# conda install pytorch==1.10.0 torchvision==0.11.0 torchaudio==0.10.0 cudatoolkit=11.3 -c pytorch -c conda-forge
+pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --extra-index-url https://download.pytorch.org/whl/cu113
+conda install clang llvm-openmp
+pip install -r requirements_py39.txt
+```
+
+r4090:
+
 ``` bash
 conda create --name simplerecon-py310 python=3.10 pip
 conda activate simplerecon-py310
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 conda install clang llvm-openmp
-pytorch-lightning # training utils
+pip install -r requirements.txt
 
 ```
 ## ⚙️ Setup
@@ -124,7 +138,7 @@ Steps:
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python test.py --name HERO_MODEL \
-            --output_base_path OUTPUT_PATH \
+            --output_base_path outputs \
             --config_file configs/models/hero_model.yaml \
             --load_weights_from_checkpoint weights/hero_model.ckpt \
             --data_config configs/data/vdr_dense.yaml \

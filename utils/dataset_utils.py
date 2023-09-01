@@ -8,6 +8,8 @@ from datasets.scanniverse_dataset import ScanniverseDataset
 def get_dataset(dataset_name, 
                 split_filepath,
                 single_debug_scan_id=None, 
+                gpu_id_debug = -1, 
+                gpu_total_debug = -1, 
                 verbose=True):
     """ Helper function for passing back the right dataset class, and helps with
         itentifying the scans in a split file.
@@ -40,6 +42,9 @@ def get_dataset(dataset_name,
         if single_debug_scan_id is not None:
             scans = [single_debug_scan_id]
 
+        if gpu_id_debug != -1 and gpu_total_debug != -1:
+            scans = [scans[_] for _ in range(len(scans)) if _ % gpu_total_debug == gpu_id_debug]
+            
         dataset_class = ScannetDataset
         if verbose:
             print(f"".center(80, "#"))
