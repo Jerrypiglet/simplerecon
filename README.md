@@ -33,33 +33,48 @@ Precomputed scans for online default frames are here: https://drive.google.com/d
 
 ## Table of Contents
 
-  * [🗺️ Overview](#%EF%B8%8F-overview)
-  * [⚙️ Setup](#%EF%B8%8F-setup)
-  * [📦 Models](#-models)
-  * [🚀 Speed](#-speed)
-  * [📝 TODOs:](#-todos)
-  * [🏃 Running out of the box!](#-running-out-of-the-box)
-  * [💾 ScanNetv2 Dataset](#-scannetv2-dataset)
-  * [🖼️🖼️🖼️ Frame Tuples](#%EF%B8%8F%EF%B8%8F%EF%B8%8F-frame-tuples)
-  * [📊 Testing and Evaluation](#-testing-and-evaluation)
-  * [👉☁️ Point Cloud Fusion](#%EF%B8%8F-point-cloud-fusion)
-  * [📊 Mesh Metrics](#-mesh-metrics)
-  * [⏳ Training](#-training)
-    + [🎛️ Finetuning a pretrained model](#%EF%B8%8F-finetuning-a-pretrained-model)
-  * [🔧 Other training and testing options](#-other-training-and-testing-options)
-  * [✨ Visualization](#-visualization)
-  * [📝🧮👩‍💻 Notation for Transformation Matrices](#-notation-for-transformation-matrices)
-  * [🗺️ World Coordinate System](#%EF%B8%8F-world-coordinate-system)
-  * [🐜🔧 Bug Fixes](#-bug-fixes)
-  * [🗺️💾 COLMAP Dataset](#%EF%B8%8F-colmap-dataset)
-  * [🙏 Acknowledgements](#-acknowledgements)
-  * [📜 BibTeX](#-bibtex)
-  * [👩‍⚖️ License](#%EF%B8%8F-license)
+- [SimpleRecon: 3D Reconstruction Without 3D Convolutions](#simplerecon-3d-reconstruction-without-3d-convolutions)
+  - [🆕 Updates](#-updates)
+  - [Table of Contents](#table-of-contents)
+  - [🗺️ Overview](#️-overview)
+  - [Rui](#rui)
+  - [⚙️ Setup](#️-setup)
+  - [📦 Models](#-models)
+  - [🚀 Speed](#-speed)
+  - [📝 TODOs:](#-todos)
+  - [🏃 Running out of the box!](#-running-out-of-the-box)
+  - [💾 ScanNetv2 Dataset](#-scannetv2-dataset)
+  - [🖼️🖼️🖼️ Frame Tuples](#️️️-frame-tuples)
+  - [📊 Testing and Evaluation](#-testing-and-evaluation)
+  - [👉☁️ Point Cloud Fusion](#️-point-cloud-fusion)
+  - [📊 Mesh Metrics](#-mesh-metrics)
+  - [⏳ Training](#-training)
+    - [🎛️ Finetuning a pretrained model](#️-finetuning-a-pretrained-model)
+  - [🔧 Other training and testing options](#-other-training-and-testing-options)
+  - [✨ Visualization](#-visualization)
+  - [📝🧮👩‍💻 Notation for Transformation Matrices](#-notation-for-transformation-matrices)
+  - [🗺️ World Coordinate System](#️-world-coordinate-system)
+  - [🐜🔧 Bug Fixes](#-bug-fixes)
+    - [**Update 31/12/2022:**](#update-31122022)
+    - [**Tiny bug with frame count:**](#tiny-bug-with-frame-count)
+  - [🗺️💾 COLMAP Dataset](#️-colmap-dataset)
+  - [🙏 Acknowledgements](#-acknowledgements)
+  - [📜 BibTeX](#-bibtex)
+  - [👩‍⚖️ License](#️-license)
 
 ## 🗺️ Overview
 
 SimpleRecon takes as input posed RGB images, and outputs a depth map for a target image.
 
+## Rui
+``` bash
+conda create --name simplerecon-py310 python=3.10 pip
+conda activate simplerecon-py310
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+conda install clang llvm-openmp
+pytorch-lightning # training utils
+
+```
 ## ⚙️ Setup
 
 Assuming a fresh [Anaconda](https://www.anaconda.com/download/) distribution, you can install dependencies with:
