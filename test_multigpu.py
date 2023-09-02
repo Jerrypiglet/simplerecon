@@ -41,21 +41,34 @@ def run_one_gpu(i, gpu_total, split, result_queue):
     # assert count == 1
     
     # process_result_list = []
-    cmd = 'python test.py --name HERO_MODEL_scannet \
+    # cmd = 'python test.py --name HERO_MODEL_scannet \
+    #         --output_base_path outputs \
+    #         --config_file configs/models/hero_model.yaml \
+    #         --load_weights_from_checkpoint weights/hero_model.ckpt \
+    #         --data_config configs/data/scannet_default_test.yaml \
+    #         --num_workers 16 \
+    #         --fast_cost_volume \
+    #         --cache_depths \
+    #         --dump_depth_visualization \
+    #         --run_fusion \
+    #         --depth_fuser open3d \
+    #         --fuse_color \
+    #         --gpu_id_debug %d \
+    #         --gpu_total_debug %d \
+    #         --batch_size 2;'%(i, gpu_total)
+    cmd = 'python test.py --name HERO_MODEL_scannet_trainval \
             --output_base_path outputs \
             --config_file configs/models/hero_model.yaml \
             --load_weights_from_checkpoint weights/hero_model.ckpt \
-            --data_config configs/data/scannet_default_test.yaml \
-            --num_workers 8 \
+            --data_config configs/data/scannet_default_train.yaml \
+            --num_workers 16 \
             --fast_cost_volume \
             --cache_depths \
-            --dump_depth_visualization \
-            --run_fusion \
-            --depth_fuser open3d \
-            --fuse_color \
             --gpu_id_debug %d \
             --gpu_total_debug %d \
             --batch_size 2;'%(i, gpu_total)
+            
+
     _results = run_cmd(cmd)
     print(_results)
     # time.sleep(2)

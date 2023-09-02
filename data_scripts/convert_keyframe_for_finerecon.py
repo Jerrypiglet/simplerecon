@@ -2,8 +2,8 @@ from pathlib import Path
 import json
 from tqdm import tqdm
 
-# for split in ['train', 'val', 'test']:
-for split in ['test']:
+for split in ['train', 'val', 'test']:
+# for split in ['test']:
     scene_keyframe_dict = {}
     keyframe_file_path = Path(f'data_splits/ScanNetv2/standard_split/{split}_eight_view_deepvmvs.txt')
     keyframe_json_path = Path('/data/ruizhu/ScanNet/%s_keyframes.json'%split)
